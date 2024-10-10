@@ -1,14 +1,20 @@
-const mockFeedData = Array.from({ length: 250 }, (_, index) => ({
-    id: (index + 1).toString(),
-    username: `user${index + 1}`,
-    avatar: `https://picsum.photos/seed/picsum/200/300`,
-    images: [
-        `https://picsum.photos/seed/picsum/200/300`,
-        `https://picsum.photos/seed/picsum/200/300`
-    ],
-    description: `Sample description for post ${index + 1}`,
-    postDate: `2024-10-${String(index % 30 + 1).padStart(2, '0')}`,
-    liked: Math.random() < 0.5 // Randomly assign true or false
-}));
+import { faker } from '@faker-js/faker';
+
+const mockFeedData = Array.from({ length: 250 }, (_, index) => {
+    const imageCount = faker.number.int({ min: 1, max: 5 });
+
+    const images = Array.from({ length: imageCount }, () => 
+        `https://picsum.photos/seed/${faker.string.uuid()}/500/500`
+    );
+
+    return {
+        id: (index + 1).toString(),
+        username: faker.internet.userName(),
+        profilePicture: `https://picsum.photos/seed/${faker.string.uuid()}/200/300`,
+        images: images,
+        description: faker.lorem.sentence(),
+        postDate: `2024-10-${String(index % 30 + 1).padStart(2, '0')}`
+    };
+});
 
 export default mockFeedData;
