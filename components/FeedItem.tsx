@@ -13,29 +13,26 @@ const FeedItem = ({ item }) => {
 
     return (
         <View style={styles.feedItemContainer}>
-            {/* User Info */}
             <View style={styles.userInfo}>
                 <Image
                     style={styles.avatar}
-                    source={{ uri: item.avatar }}
+                    source={{ uri: item.profilePicture}}
                 />
                 <Text style={styles.username}>{item.username}</Text>
             </View>
+            <Image
+                style={styles.carouselImage}
+                source={{ uri: item.images[0] }}
+                />
 
-            {/* Image Carousel */}
-            <Text>vsd</Text>
-
-            {/* Post Description */}
             <Text style={styles.description}>{item.description}</Text>
 
-            {/* Like Button */}
             <TouchableOpacity onPress={() => setLiked(!liked)}>
                 <Text style={styles.likeButton}>
                     {liked ? 'Unlike' : 'Like'}
                 </Text>
             </TouchableOpacity>
 
-            {/* Post Date */}
             <Text style={styles.postDate}>{item.postDate}</Text>
         </View>
     );
@@ -86,3 +83,5 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
 });
+
+export default FeedItem;
