@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PAGES from '../constants/pages';
-import ProfileScreen from '../pages/ProfileScreen';
+import CreatePostScreen from '../pages/CreatePostScreen';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
@@ -12,8 +12,8 @@ function RootNavigator() {
             >
                 <Stack.Group>
                     <Stack.Screen
-                    component={ProfileScreen}
-                    name={PAGES.PROFILE}
+                    component={CreatePostScreen}
+                    name={PAGES.CREATE_POST}
                       />
                 </Stack.Group>
             </Stack.Navigator>
