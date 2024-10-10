@@ -7,21 +7,5 @@
         "orientation": "portrait",
         "userInterfaceStyle": "automatic",
         "assetBundlePatterns": ["**/*"],
-        "ios": {
-            "bundleIdentifier": "com.socialmedia.app",
-            "buildNumber": "1",
-            "icon": "./assets/appstore.png"
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/playstore.png",
-                "backgroundColor": "#000"
-            },
-            "versionCode": 1,
-            "package": "com.socialmedia.app"
-        },
-        "web": {
-            "favicon": "./assets/favicon.png"
-        }
     }
 }
