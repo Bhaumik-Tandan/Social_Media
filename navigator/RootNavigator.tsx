@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignUpScreen from '../pages/SignUpScreen';
+import PAGES from '../constants/pages';
+import ProfileScreen from '../pages/ProfileScreen';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
@@ -11,8 +12,8 @@ function RootNavigator() {
             >
                 <Stack.Group>
                     <Stack.Screen
-                    component={SignUpScreen}
-                    name='ex'
+                    component={ProfileScreen}
+                    name={PAGES.PROFILE}
                       />
                 </Stack.Group>
             </Stack.Navigator>
