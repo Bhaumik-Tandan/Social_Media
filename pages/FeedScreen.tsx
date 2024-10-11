@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import FeedItem from '../components/FeedItem';
+import { calcWidth } from '../helper/res';
 import mockFeedData from '../mockData/feeds';
 
 const FeedScreen = () => {
@@ -24,7 +25,7 @@ const FeedScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        margin:calcWidth(2)
     }
 });
 
