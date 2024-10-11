@@ -2,19 +2,21 @@ import * as ImagePicker from 'expo-image-picker'; // Ensure you have expo-image-
 import React, { useState } from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const  PostImagePicker = () => {
+const PostImagePicker = () => {
     const [image, setImage] = useState(null);
+    const [permissionGranted, setPermissionGranted] = useState(null); // State to track permission
 
     const pickImage = async () => {
         // Ask the user for permission to access the camera roll
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+        setPermissionGranted(permissionResult.granted); // Update permission state
 
         if (permissionResult.granted === false) {
             alert('Permission to access camera roll is required!');
             return;
         }
 
-        // Launch the image picker
         const result = await ImagePicker.launchImageLibraryAsync();
 
         if (!result.canceled) {
@@ -24,12 +26,20 @@ const  PostImagePicker = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {!image ? (
-                <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
-                    <Text style={styles.text}>Tap to select an image</Text>
+            {!permissionGranted ? (
+                <TouchableOpacity style={styles.permissionButton} onPress={pickImage}>
+                    <Text style={styles.text}>Grant Permission to Access Images</Text>
                 </TouchableOpacity>
             ) : (
-                <Image source={{ uri: image }} style={styles.image} />
+                <>
+                    {!image ? (
+                        <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
+                            <Text style={styles.text}>Tap to select an image</Text>
+                        </TouchableOpacity>
+                    ) : (
+                        <Image source={{ uri: image }} style={styles.image} />
+                    )}
+                </>
             )}
         </SafeAreaView>
     );
@@ -47,9 +57,16 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 10,
     },
+    permissionButton: {
+        backgroundColor: '#f44336', // Red color for the permission button
+        padding: 20,
+        borderRadius: 10,
+        marginBottom: 20,
+    },
     text: {
         color: 'white',
         fontSize: 18,
+        textAlign: 'center',
     },
     image: {
         width: '100%',
