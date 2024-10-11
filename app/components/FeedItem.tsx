@@ -35,7 +35,7 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
     return (
         <View style={styles.feedItemContainer}>
             <FeedUserInfo profilePicture={item.profilePicture} username={item.username} />
-            <FeedImage imageUri={item.images[0]} heartVisible={heartVisible} heartScale={heartScale} onDoubleTap={handleDoubleTap} />
+            <FeedImage images={item.images} heartVisible={heartVisible} heartScale={heartScale} onDoubleTap={handleDoubleTap} />
             <Text style={styles.description}>{item.description}</Text>
             <LikeButton liked={liked} setLiked={setLiked} />
             <PostDate date={item.postDate} />
