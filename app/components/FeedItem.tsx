@@ -1,9 +1,9 @@
 // FeedItem.tsx
 import LikeButton from 'app/components/LikeButton';
-import { calcHeight, getFontSizeByWindowWidth } from 'app/helper/res';
 import FeedProps from 'app/types/pages/FeedProps';
 import React from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
+import { calcHeight, getFontSizeByWindowWidth } from '../helper/res';
 import FeedImage from './FeedImage';
 import FeedUserInfo from './FeedUserInfo';
 import PostDate from './PostDate';
@@ -16,7 +16,21 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
         if (liked) return;
         setLiked(true);
         setHeartVisible(true);
-        setTimeout(() => setHeartVisible(false), 600); // Hide heart after animation completes
+        // Start the animation
+        Animated.sequence([
+            Animated.timing(heartScale, {
+                toValue: 1.5,
+                duration: 300,
+                useNativeDriver: true,
+            }),
+            Animated.timing(heartScale, {
+                toValue: 0,
+                duration: 300,
+                useNativeDriver: true,
+            }),
+        ]).start(() => {
+            setHeartVisible(false); // Hide heart after animation completes
+        });
     };
 
     return (
