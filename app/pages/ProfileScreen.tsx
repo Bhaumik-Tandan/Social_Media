@@ -3,8 +3,9 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import CircularImage from 'app/components/CircularImage';
 import ImageGrid from 'app/components/ImageGrid';
+import COLOR from 'app/constants/color';
 import ImageSize from 'app/constants/imageSize';
-import { calcHeight, calcWidth } from 'app/helper/res';
+import { calcWidth } from 'app/helper/res';
 import mockProfileData from 'mockData/profile';
 
 const ProfileScreen = () => {
@@ -29,13 +30,12 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor:COLOR.BACKGROUND
     },
     profileHeader: {
         flexDirection: 'row',
-        padding: calcHeight(2),
         justifyContent: 'space-between',
-        marginHorizontal: calcWidth(5),
+        margin: calcWidth(3),
         alignItems: 'center',
     },
     username: {
