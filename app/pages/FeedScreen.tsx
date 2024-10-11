@@ -5,9 +5,9 @@ import {
     StyleSheet
 } from 'react-native';
 
+import mockFeedData from '../../mockData/feeds';
 import FeedItem from '../components/FeedItem';
 import { calcWidth } from '../helper/res';
-import mockFeedData from '../mockData/feeds';
 
 const FeedScreen = () => {
 

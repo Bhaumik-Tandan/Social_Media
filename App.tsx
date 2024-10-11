@@ -1,6 +1,6 @@
+import RootNavigator from 'app/navigator/RootNavigator';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import RootNavigator from './navigator/RootNavigator';
 
 function App() {
     return (
