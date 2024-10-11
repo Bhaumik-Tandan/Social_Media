@@ -1,10 +1,11 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
+import LikeButton from 'app/components/LikeButton';
+import { calcHeight, calcWidth, getFontSizeByWindowWidth } from 'app/helper/res';
+import FeedProps from 'app/types/FeedProps';
 import React from 'react';
 import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, TapGestureHandler } from 'react-native-gesture-handler';
-import { calcHeight, calcWidth, getFontSizeByWindowWidth } from '../helper/res';
-import FeedProps from '../types/FeedProps';
-import LikeButton from './LikeButton';
+
 const FeedItem = ({ item }: { item: FeedProps }) => {
     const [liked, setLiked] = React.useState(false);
     const [heartVisible, setHeartVisible] = React.useState(false);

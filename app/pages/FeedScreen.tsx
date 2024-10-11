@@ -1,9 +1,9 @@
 import React from 'react';
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 
+import FeedItem from 'app/components/FeedItem';
+import { calcWidth } from 'app/helper/res';
 import mockFeedData from '../../mockData/feeds';
-import FeedItem from '../components/FeedItem';
-import { calcWidth } from '../helper/res';
 
 const FeedScreen = () => {
     return (
