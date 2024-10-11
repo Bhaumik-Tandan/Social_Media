@@ -30,7 +30,7 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:COLOR.BACKGROUND
+        backgroundColor: COLOR.BACKGROUND,
     },
     profileHeader: {
         flexDirection: 'row',

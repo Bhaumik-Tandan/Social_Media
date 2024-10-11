@@ -4,13 +4,10 @@ import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-n
 
 const PostImagePicker = () => {
     const [image, setImage] = useState(null);
-    const [permissionGranted, setPermissionGranted] = useState(null); // State to track permission
 
     const pickImage = async () => {
         // Ask the user for permission to access the camera roll
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-        setPermissionGranted(permissionResult.granted); // Update permission state
 
         if (permissionResult.granted === false) {
             alert('Permission to access camera roll is required!');
@@ -26,20 +23,12 @@ const PostImagePicker = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {!permissionGranted ? (
-                <TouchableOpacity style={styles.permissionButton} onPress={pickImage}>
-                    <Text style={styles.text}>Grant Permission to Access Images</Text>
+            {!image ? (
+                <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
+                    <Text style={styles.text}>Tap to select an image</Text>
                 </TouchableOpacity>
             ) : (
-                <>
-                    {!image ? (
-                        <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
-                            <Text style={styles.text}>Tap to select an image</Text>
-                        </TouchableOpacity>
-                    ) : (
-                        <Image source={{ uri: image }} style={styles.image} />
-                    )}
-                </>
+                <Image source={{ uri: image }} style={styles.image} />
             )}
         </SafeAreaView>
     );

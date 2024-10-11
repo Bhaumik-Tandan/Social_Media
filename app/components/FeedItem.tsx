@@ -16,7 +16,6 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
         if (liked) return;
         setLiked(true);
         setHeartVisible(true);
-        // Start the animation
         Animated.sequence([
             Animated.timing(heartScale, {
                 toValue: 1.5,
@@ -29,19 +28,14 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
                 useNativeDriver: true,
             }),
         ]).start(() => {
-            setHeartVisible(false); // Hide heart after animation completes
+            setHeartVisible(false);
         });
     };
 
     return (
         <View style={styles.feedItemContainer}>
             <FeedUserInfo profilePicture={item.profilePicture} username={item.username} />
-            <FeedImage
-                imageUri={item.images[0]}
-                heartVisible={heartVisible}
-                heartScale={heartScale}
-                onDoubleTap={handleDoubleTap}
-            />
+            <FeedImage imageUri={item.images[0]} heartVisible={heartVisible} heartScale={heartScale} onDoubleTap={handleDoubleTap} />
             <Text style={styles.description}>{item.description}</Text>
             <LikeButton liked={liked} setLiked={setLiked} />
             <PostDate date={item.postDate} />
