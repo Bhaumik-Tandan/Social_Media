@@ -12,15 +12,11 @@ const FeedHeader = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <Pressable
-            onPress={() => navigation.navigate(PAGES.CREATE_POST)}
-            >
-            <AntDesign name="pluscircle" size={calcWidth(10)} color="pink" />
+            <Pressable onPress={() => navigation.navigate(PAGES.CREATE_POST)}>
+                <AntDesign name="pluscircle" size={calcWidth(10)} color="pink" />
             </Pressable>
-            <Pressable
-            onPress={() => navigation.navigate(PAGES.PROFILE)}
-            >
-            <CircularImage size={ImageSize.MEDIUM} uri={mockProfileData.profilePicture} />
+            <Pressable onPress={() => navigation.navigate(PAGES.PROFILE)}>
+                <CircularImage size={ImageSize.MEDIUM} uri={mockProfileData.profilePicture} />
             </Pressable>
         </View>
     );
@@ -32,9 +28,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: calcWidth(4), 
+        paddingHorizontal: calcWidth(4),
         marginTop: calcHeight(5),
-    }
+    },
 });
 
 export default FeedHeader;

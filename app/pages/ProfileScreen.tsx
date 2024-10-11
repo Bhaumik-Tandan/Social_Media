@@ -11,7 +11,7 @@ const ProfileScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.profileHeader}>
-                 <CircularImage size={ImageSize.LARGE} uri={mockProfileData.profilePicture} />
+                <CircularImage size={ImageSize.LARGE} uri={mockProfileData.profilePicture} />
                 <View>
                     <Text style={styles.username}>{mockProfileData.username}</Text>
                     <Text style={styles.bio}>{mockProfileData.bio}</Text>

@@ -1,13 +1,6 @@
 import PostImagePicker from 'app/components/PostImagePicker';
 import React, { useState } from 'react';
-import {
-    Alert,
-    SafeAreaView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity
-} from 'react-native';
+import { Alert, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 const CreatePostScreen = () => {
     const [title, setTitle] = useState('');
@@ -18,10 +11,10 @@ const CreatePostScreen = () => {
             Alert.alert('Error', 'Please fill out all fields');
             return;
         }
-        
+
         // Add your post creation logic here
         Alert.alert('Post Created', `Title: ${title}\nDescription: ${description}`);
-        
+
         // Reset fields after creating post
         setTitle('');
         setDescription('');
@@ -30,20 +23,15 @@ const CreatePostScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <PostImagePicker />
-            
-            <TextInput 
-                style={styles.input} 
-                placeholder="Title" 
-                value={title} 
-                onChangeText={setTitle} 
-            />
-            <TextInput 
-                style={styles.input} 
-                placeholder="Description" 
-                value={description} 
-                onChangeText={setDescription} 
-                multiline 
-                numberOfLines={4} 
+
+            <TextInput style={styles.input} placeholder="Title" value={title} onChangeText={setTitle} />
+            <TextInput
+                style={styles.input}
+                placeholder="Description"
+                value={description}
+                onChangeText={setDescription}
+                multiline
+                numberOfLines={4}
             />
             <TouchableOpacity style={styles.button} onPress={handleCreatePost}>
                 <Text style={styles.buttonText}>Create Post</Text>

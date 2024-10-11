@@ -11,9 +11,7 @@ function RootNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen component={FeedScreen} name={PAGES.FEED}
-                 options={{ header: (props) => <FeedHeader/> }}
-                />
+                <Stack.Screen component={FeedScreen} name={PAGES.FEED} options={{ header: (props) => <FeedHeader /> }} />
                 <Stack.Screen name={PAGES.CREATE_POST} component={CreatePostScreen} />
                 <Stack.Screen name={PAGES.PROFILE} component={ProfileScreen} />
             </Stack.Navigator>

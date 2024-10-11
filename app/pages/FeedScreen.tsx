@@ -12,12 +12,11 @@ const FeedScreen = () => {
                 data={mockFeedData}
                 renderItem={({ item }) => <FeedItem item={item} />}
                 keyExtractor={(item) => item.id}
-                initialNumToRender={10} 
-                maxToRenderPerBatch={5} 
-                windowSize={5} 
+                initialNumToRender={10}
+                maxToRenderPerBatch={5}
+                windowSize={5}
                 removeClippedSubviews={true}
             />
-            
         </SafeAreaView>
     );
 };
