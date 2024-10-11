@@ -1,15 +1,18 @@
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
+import CircularImage from 'app/components/CircularImage';
+import ImageGrid from 'app/components/ImageGrid';
+import ImageSize from 'app/constants/imageSize';
+import { calcHeight, calcWidth } from 'app/helper/res';
 import mockProfileData from 'mockData/profile';
-import ImageGrid from '../components/ImageGrid';
 
 const ProfileScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.profileHeader}>
-                <Image source={{ uri: mockProfileData.profilePicture }} style={styles.profilePicture} />
-                <View style={styles.userInfo}>
+                 <CircularImage size={ImageSize.LARGE} uri={mockProfileData.profilePicture} />
+                <View>
                     <Text style={styles.username}>{mockProfileData.username}</Text>
                     <Text style={styles.bio}>{mockProfileData.bio}</Text>
                     <View style={styles.followInfo}>
@@ -30,17 +33,10 @@ const styles = StyleSheet.create({
     },
     profileHeader: {
         flexDirection: 'row',
-        padding: 20,
+        padding: calcHeight(2),
+        justifyContent: 'space-between',
+        marginHorizontal: calcWidth(5),
         alignItems: 'center',
-    },
-    profilePicture: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        marginRight: 20,
-    },
-    userInfo: {
-        flex: 1,
     },
     username: {
         fontSize: 24,
@@ -58,18 +54,6 @@ const styles = StyleSheet.create({
     followCount: {
         fontSize: 14,
         fontWeight: 'bold',
-    },
-    postGrid: {
-        padding: 10,
-    },
-    postContainer: {
-        flex: 1,
-        margin: 5,
-    },
-    postImage: {
-        width: '100%',
-        height: 120, // Adjust height as needed
-        borderRadius: 8,
     },
 });
 
