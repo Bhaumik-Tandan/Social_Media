@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-    Alert,
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity
-} from 'react-native';
+import { Alert, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 
 const CreatePostScreen = () => {
@@ -68,13 +59,9 @@ const CreatePostScreen = () => {
                     placeholderTextColor="#888"
                 />
                 <TouchableOpacity style={styles.imagePicker} onPress={handleImagePicker}>
-                    <Text style={styles.imagePickerText}>
-                        {imageUri ? 'Change Image' : 'Select Image'}
-                    </Text>
+                    <Text style={styles.imagePickerText}>{imageUri ? 'Change Image' : 'Select Image'}</Text>
                 </TouchableOpacity>
-                {imageUri && (
-                    <Image source={{ uri: imageUri }} style={styles.selectedImage} />
-                )}
+                {imageUri && <Image source={{ uri: imageUri }} style={styles.selectedImage} />}
                 <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
                     <Text style={styles.submitButtonText}>Submit Post</Text>
                 </TouchableOpacity>

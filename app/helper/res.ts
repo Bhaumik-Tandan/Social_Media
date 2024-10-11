@@ -6,12 +6,12 @@ export const getOrientation = () => {
     return deviceWidth < deviceHeight ? 'portrait' : 'landscape';
 };
 
-export const calcHeight = (x:number) => PixelRatio.roundToNearestPixel((deviceHeight * x) / 100);
+export const calcHeight = (x: number) => PixelRatio.roundToNearestPixel((deviceHeight * x) / 100);
 
-export const getFontSizeByWindowWidth = (fontSize:number) => {
+export const getFontSizeByWindowWidth = (fontSize: number) => {
     const baseWidth = 320; // width of smallest iPhone
     const width = getOrientation() === 'portrait' ? deviceWidth : deviceHeight;
     return PixelRatio.roundToNearestPixel(fontSize * (width / baseWidth));
 };
 
-export const calcWidth = (x:number) => PixelRatio.roundToNearestPixel((deviceWidth * x) / 100);
+export const calcWidth = (x: number) => PixelRatio.roundToNearestPixel((deviceWidth * x) / 100);

@@ -1,21 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import PAGES from '../constants/pages';
-import FeedScreen from '../pages/FeedScreen';
+import PAGES from 'app/constants/pages';
+import CreatePostScreen from 'app/pages/CreatePostScreen';
+import FeedScreen from 'app/pages/FeedScreen';
+import ProfileScreen from 'app/pages/ProfileScreen';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
     return (
-        <NavigationContainer
-        >
-            <Stack.Navigator
-            >
-                <Stack.Group>
-                    <Stack.Screen
-                    component={FeedScreen}
-                    name={PAGES.FEED}
-                      />
-                </Stack.Group>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen component={FeedScreen} name={PAGES.FEED} />
+                <Stack.Screen name={PAGES.CREATE_POST} component={CreatePostScreen} />
+                <Stack.Screen name={PAGES.PROFILE} component={ProfileScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

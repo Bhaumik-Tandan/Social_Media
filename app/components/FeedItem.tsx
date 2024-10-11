@@ -1,12 +1,6 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React from 'react';
-import {
-    Animated,
-    Image,
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
+import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, TapGestureHandler } from 'react-native-gesture-handler';
 import { calcHeight, calcWidth, getFontSizeByWindowWidth } from '../helper/res';
 import FeedProps from '../types/FeedProps';
@@ -17,7 +11,7 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
     const heartScale = React.useRef(new Animated.Value(0)).current; // For heart animation
 
     const handleDoubleTap = () => {
-        if(liked) return; // Prevent double tap if already liked
+        if (liked) return; // Prevent double tap if already liked
         setLiked(true);
         setHeartVisible(true);
         Animated.sequence([
@@ -39,33 +33,23 @@ const FeedItem = ({ item }: { item: FeedProps }) => {
     return (
         <View style={styles.feedItemContainer}>
             <View style={styles.userInfo}>
-                <Image
-                    style={styles.avatar}
-                    source={{ uri: item.profilePicture }}
-                />
+                <Image style={styles.avatar} source={{ uri: item.profilePicture }} />
                 <Text style={styles.username}>{item.username}</Text>
             </View>
             <GestureHandlerRootView>
                 <TapGestureHandler
                     onHandlerStateChange={({ nativeEvent }) => {
-                        if (nativeEvent.state === 4) { // 4 indicates the state of "active"
+                        if (nativeEvent.state === 4) {
+                            // 4 indicates the state of "active"
                             handleDoubleTap();
                         }
                     }}
                     numberOfTaps={2}
                 >
                     <View style={styles.imageContainer}>
-                        <Image
-                            style={styles.carouselImage}
-                            source={{ uri: item.images[0] }}
-                        />
+                        <Image style={styles.carouselImage} source={{ uri: item.images[0] }} />
                         {heartVisible && (
-                            <Animated.View
-                                style={[
-                                    styles.heartContainer,
-                                    { transform: [{ scale: heartScale }] },
-                                ]}
-                            >
+                            <Animated.View style={[styles.heartContainer, { transform: [{ scale: heartScale }] }]}>
                                 <AntDesign name="heart" size={calcWidth(30)} color="red" />
                             </Animated.View>
                         )}
