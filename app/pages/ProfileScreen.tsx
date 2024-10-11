@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-import mockProfileData from '../../mockData/profile';
+import mockProfileData from 'mockData/profile';
 import ImageGrid from '../components/ImageGrid';
 
 const ProfileScreen = () => {

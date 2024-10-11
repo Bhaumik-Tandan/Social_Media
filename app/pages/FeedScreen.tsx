@@ -3,7 +3,7 @@ import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 
 import FeedItem from 'app/components/FeedItem';
 import { calcWidth } from 'app/helper/res';
-import mockFeedData from '../../mockData/feeds';
+import mockFeedData from 'mockData/feeds';
 
 const FeedScreen = () => {
     return (
@@ -17,6 +17,7 @@ const FeedScreen = () => {
                 windowSize={5} 
                 removeClippedSubviews={true}
             />
+            
         </SafeAreaView>
     );
 };

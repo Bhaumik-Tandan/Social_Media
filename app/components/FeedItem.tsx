@@ -1,7 +1,7 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
 import LikeButton from 'app/components/LikeButton';
 import { calcHeight, calcWidth, getFontSizeByWindowWidth } from 'app/helper/res';
-import FeedProps from 'app/types/FeedProps';
+import FeedProps from 'app/types/pages/FeedProps';
 import React from 'react';
 import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, TapGestureHandler } from 'react-native-gesture-handler';
